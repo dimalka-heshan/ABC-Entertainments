@@ -42,33 +42,33 @@ const CreateGenre = async (req, res) => {
   }
 };
 
-// //Get all Aenres controller functions
-// const GetAllAlbums = async (req, res) => {
-//     try {
-//       const result = await AlbumService.findAllAlbum();
+//Get all Genres controller functions
+const GetAllGenres = async (req, res) => {
+    try {
+      const result = await GenreService.findAllGenre();
   
-//       //Check result and send response
-//       if (result) {
-//         return res.status(201).send({
-//           success: true,
-//           questions: result,
-//         });
-//       } else {
-//         return res.status(404).send({
-//           success: false,
-//           message: "Albums not found!",
-//         });
-//       }
-//     } catch (error) {
-//       return res.status(500).send({
-//         success: false,
-//         message: error.message,
-//       });
-//     }
-//   };
+      //Check result and send response
+      if (result) {
+        return res.status(201).send({
+          success: true,
+          genres: result,
+        });
+      } else {
+        return res.status(404).send({
+          success: false,
+          message: "Genres not found!",
+        });
+      }
+    } catch (error) {
+      return res.status(500).send({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
 
 
 module.exports = {
     CreateGenre,
-    // GetAllGenres
+    GetAllGenres
 };
