@@ -1,5 +1,5 @@
-const GenreService = require("../services/genre.services");
-const Genre = require("../models/genre.model");
+const GenreService = require("../services/genres.services");
+const Genres = require("../models/genre.model");
 
 //Create genre controller functions
 const CreateGenre = async (req, res) => {
@@ -7,17 +7,17 @@ const CreateGenre = async (req, res) => {
     const newGenre = req.body;
 
     //Check genre whether it is already exist or not and send response
-    const genre = await GenreService.genreFindByGenre(newGenre.title);
+    const genre = await GenreService.genreFindByGenre(newGenre.genre);
 
     if (genre) {
         return res.status(500).send({
             success: false,
-            message: "Genre title already exists!",
-          });
+            message: "Genre already exists!",
+        });
     } else if (!genre) {
-        const Genre = new Genre(newGenre);
+        const Genre = new Genres(newGenre);
 
-        //save aenre
+        //save genre
         const result = await GenreService.save(Genre);
     
         //Check result and send response

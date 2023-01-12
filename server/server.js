@@ -11,9 +11,11 @@ app.use(cors());
 
 // @import Routes
 const AlbumRouter = require("./routes/album.routes");
+const GenreRouter = require("./routes/genre.routes");
 
 // @define Routes
 app.use(constants.API.PREFIX.concat("/album"), AlbumRouter);
+app.use(constants.API.PREFIX.concat("/genre"), GenreRouter);
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;
