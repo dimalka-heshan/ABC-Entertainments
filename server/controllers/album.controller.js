@@ -51,7 +51,7 @@ const GetAllAlbums = async (req, res) => {
       if (result) {
         return res.status(201).send({
           success: true,
-          questions: result,
+          albums: result,
         });
       } else {
         return res.status(404).send({
@@ -78,7 +78,7 @@ const GetSpecificAlbum = async (req, res) => {
       if (result) {
         return res.status(201).send({
           success: true,
-          question: result,
+          albem: result,
         });
       } else {
         return res.status(404).send({
