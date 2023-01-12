@@ -1,31 +1,36 @@
-const Albem = require("../models/album.model");
+const Album = require("../models/album.model");
 
-const save = async (albemData) => {
-  return await Albem.create(albemData);
+const save = async (albumData) => {
+  return await Album.create(albumData);
 };
 
-const albemFindByID = async (id) => {
-  return await Albem.findById(id);
+const albumFindByID = async (id) => {
+  return await Album.findById(id);
 };
 
-const findAllAlbem = async () => {
-  return await Albem.find().sort({
+const albumFindByTitle = async (title) => {
+    return await Album.findOne({title: title});
+  };  
+
+const findAllAlbum = async () => {
+  return await Album.find().sort({
     createdAt: -1,
   });
 };
 
-const updateAlbem = async (id, updatedalbem) => {
-  return await Albem.findByIdAndUpdate(id, updatedalbem);
+const updateAlbum = async (id, updatedalbum) => {
+  return await Album.findByIdAndUpdate(id, updatedalbum);
 };
 
-const deleteAlbemById = async (id) => {
-  return await Albem.findByIdAndDelete(id);
+const deleteAlbumById = async (id) => {
+  return await Album.findByIdAndDelete(id);
 };
 
 module.exports = {
   save,
-  albemFindByID,
-  findAllAlbem,
-  updateAlbem,
-  deleteAlbemById,
+  albumFindByID,
+  findAllAlbum,
+  updateAlbum,
+  deleteAlbumById,
+  albumFindByTitle
 };

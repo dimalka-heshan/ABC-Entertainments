@@ -3,16 +3,16 @@ const AlbumRouter = express.Router();
 
 const {
   CreateAlbum,
-//   GetAllAlbums,
-//   GetUniqeAlbum,
-//   DeleteUniqeAlbum,
-//   UpdateAlbum,
+  GetAllAlbums,
+  GetSpecificAlbum,
+  DeleteAlbum,
+  UpdateAlbum,
 } = require("../controllers/album.controller");
 
 AlbumRouter.post("/create", CreateAlbum);
-// AlbumRouter.get("/", GetAllAlbums);
-// AlbumRouter.get("/:id", GetUniqeAlbum);
-// AlbumRouter.delete("/:id", DeleteUniqeAlbum);
-// AlbumRouter.patch("/:id", UpdateAlbum);
+AlbumRouter.get("/", GetAllAlbums);
+AlbumRouter.get("/:id", GetSpecificAlbum);
+AlbumRouter.delete("/:id", DeleteAlbum);
+AlbumRouter.patch("/:id", UpdateAlbum);
 
 module.exports = AlbumRouter;
