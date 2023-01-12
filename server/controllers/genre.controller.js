@@ -1,48 +1,48 @@
-// const GenreService = require("../services/genre.services");
-// const Genre = require("../models/genre.model");
+const GenreService = require("../services/genre.services");
+const Genre = require("../models/genre.model");
 
-// //Create Album controller functions
-// const CreateAlbum = async (req, res) => {
-//   try {
-//     const newAlbum = req.body;
+//Create genre controller functions
+const CreateGenre = async (req, res) => {
+  try {
+    const newGenre = req.body;
 
-//     //Check albem title whether it is already exist or not and send response
-//     const album = await AlbumService.albumFindByTitle(newAlbum.title);
+    //Check genre whether it is already exist or not and send response
+    const genre = await GenreService.genreFindByGenre(newGenre.title);
 
-//     if (album) {
-//         return res.status(500).send({
-//             success: false,
-//             message: "Album title already exists!",
-//           });
-//     } else if (!album) {
-//         const Album = new Albums(newAlbum);
+    if (genre) {
+        return res.status(500).send({
+            success: false,
+            message: "Genre title already exists!",
+          });
+    } else if (!genre) {
+        const Genre = new Genre(newGenre);
 
-//         //save album
-//         const result = await AlbumService.save(Album);
+        //save aenre
+        const result = await GenreService.save(Genre);
     
-//         //Check result and send response
-//         if (result) {
-//           return res.status(201).send({
-//             success: true,
-//             message: "Album created!",
-//           });
-//         } else {
-//           return res.status(500).send({
-//             success: false,
-//             message: "Album creating failed!",
-//           });
-//         }
-//     }
+        //Check result and send response
+        if (result) {
+          return res.status(201).send({
+            success: true,
+            message: "Genre created!",
+          });
+        } else {
+          return res.status(500).send({
+            success: false,
+            message: "Genre creating failed!",
+          });
+        }
+    }
 
-//   } catch (error) {
-//     return res.status(500).send({
-//       success: false,
-//       message: error.message,
-//     });
-//   }
-// };
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
-// //Get all Albums controller functions
+// //Get all Aenres controller functions
 // const GetAllAlbums = async (req, res) => {
 //     try {
 //       const result = await AlbumService.findAllAlbum();
@@ -68,7 +68,7 @@
 //   };
 
 
-// module.exports = {
-//     CreateGenre,
-//     GetAllGenres
-// };
+module.exports = {
+    CreateGenre,
+    // GetAllGenres
+};
