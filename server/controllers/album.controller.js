@@ -56,8 +56,7 @@ const GetAllAlbums = async (req, res) => {
       } else {
         return res.status(404).send({
           success: false,
-          message: "Questions not found!",
-          questions: result,
+          message: "Albums not found!",
         });
       }
     } catch (error) {

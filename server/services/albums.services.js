@@ -10,7 +10,7 @@ const albumFindByID = async (id) => {
 
 const albumFindByTitle = async (title) => {
     return await Album.findOne({title: title});
-  };  
+};  
 
 const findAllAlbum = async () => {
   return await Album.find().sort({
