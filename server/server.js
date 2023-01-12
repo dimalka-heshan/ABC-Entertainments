@@ -10,8 +10,10 @@ app.use(express.json());
 app.use(cors());
 
 // @import Routes
+const AlbumRouter = require("./routes/album.routes");
 
 // @define Routes
+app.use(constants.API.PREFIX.concat("/album"), AlbumRouter);
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;

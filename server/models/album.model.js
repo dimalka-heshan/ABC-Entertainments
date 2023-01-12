@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const AlbumSchema = new mongoose.Schema({
-  Title: {
+  title: {
     type: String,
     required: true,
   },
-  Artist: {
+  artist: {
     type: String,
     required: true,
   },
-  Genre: {
+  genre: {
     type: String,
     required: true,
   },
-  ReleaseDate: {
+  releaseDate: {
     type: String,
     required: true,
   },
