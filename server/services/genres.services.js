@@ -5,8 +5,8 @@ const save = async (genreData) => {
 };
 
 const genreFindByGenre = async (genre) => {
-    return await Genre.findOne({genre: genre});
-};  
+  return await Genre.findOne({ genre: genre });
+};
 
 const findAllGenre = async () => {
   return await Genre.find();
@@ -15,5 +15,5 @@ const findAllGenre = async () => {
 module.exports = {
   save,
   findAllGenre,
-  genreFindByGenre
+  genreFindByGenre,
 };

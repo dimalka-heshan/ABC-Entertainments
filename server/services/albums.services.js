@@ -9,8 +9,8 @@ const albumFindByID = async (id) => {
 };
 
 const albumFindByTitle = async (title) => {
-    return await Album.findOne({title: title});
-};  
+  return await Album.findOne({ title: title });
+};
 
 const findAllAlbum = async () => {
   return await Album.find().sort({
@@ -32,5 +32,5 @@ module.exports = {
   findAllAlbum,
   updateAlbum,
   deleteAlbumById,
-  albumFindByTitle
+  albumFindByTitle,
 };
