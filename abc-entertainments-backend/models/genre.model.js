@@ -5,7 +5,11 @@ const GenreSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+},
+{
+  timestamps: true,
+}
+);
 
 const Genre = mongoose.model("genres", GenreSchema);
 module.exports = Genre;

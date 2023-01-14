@@ -17,7 +17,11 @@ const AlbumSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+},
+{
+  timestamps: true,
+}
+);
 
 const Album = mongoose.model("Album", AlbumSchema);
 module.exports = Album;
