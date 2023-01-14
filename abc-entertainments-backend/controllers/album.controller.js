@@ -127,22 +127,12 @@ const UpdateAlbum = async (req, res) => {
   try {
     const id = req.params.id;
     const updateData = req.body;
-
-    //Check albem title whether it is already exist or not and send response
-    const album = await AlbumService.albumFindByTitle(updateData.title);
-
-    if (album) {
-      return res.status(500).send({
-        success: false,
-        message: "Album title already exists!",
-      });
-    } else if (!album) {
-      const UpdatedAlbum = await AlbumService.updateAlbum(id, updateData);
-      return res.status(200).send({
-        success: true,
-        UpdatedAlbum: UpdatedAlbum,
-      });
-    }
+    const UpdatedAlbum = await AlbumService.updateAlbum(id, updateData);
+    
+    return res.status(200).send({
+      success: true,
+      UpdatedAlbum: UpdatedAlbum,
+    });
   } catch (e) {
     return res.status(500).send({ success: false, message: e.message });
   }
